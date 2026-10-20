@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feelie — распознавай эмоции</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+</head>
+<body>
+  <div class="decor decor-one" aria-hidden="true">✿</div>
+  <div class="decor decor-two" aria-hidden="true">♡</div>
+
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Feelie — главная"><span class="brand-icon">☺</span> feelie<span class="brand-dot">.</span></a>
+      <span class="top-note"><span class="tiny-heart">♥</span> маленький помощник эмоций</span>
+    </header>
+
+    <section class="intro">
+      <div class="eyebrow"><span></span> ТВОЁ НАСТРОЕНИЕ В МОМЕНТЕ</div>
+      <h1>Как ты себя <em>чувствуешь?</em></h1>
+      <p class="subtitle">Посмотрим на твою эмоцию вместе. Улыбнись или просто будь собой ♡</p>
+    </section>
+
+    <section class="app-card" aria-label="Распознавание эмоций">
+      <div class="camera-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="section-kicker">МОЯ КАМЕРА</span>
+            <h2>Привет, это ты!</h2>
+          </div>
+          <span class="live-pill"><span class="live-dot"></span> <span id="cameraStatus">не запущена</span></span>
+        </div>
+
+        <div class="camera-frame" id="cameraFrame">
+          <div class="camera-placeholder" id="cameraPlaceholder">
+            <div class="face-circle"><span>☺</span><i>✦</i></div>
+            <strong>Готова узнать свою эмоцию?</strong>
+            <span>Разреши доступ к камере, чтобы начать</span>
+          </div>
+          <div id="webcam-container" class="webcam-container"></div>
+          <div class="camera-label" id="cameraLabel">CAMERA SPACE</div>
+        </div>
+
+        <div class="camera-actions">
+          <button class="button button-primary" id="startButton" type="button"><span>▶</span> Включить камеру</button>
+          <button class="button button-secondary" id="stopButton" type="button" disabled>Остановить</button>
+        </div>
+        <p class="privacy-note"><span>♡</span> Камера используется только для распознавания на этой странице.</p>
+      </div>
+
+      <aside class="result-panel">
+        <span class="section-kicker">РЕЗУЛЬТАТ</span>
+        <h2>Твоя эмоция</h2>
+        <div class="emotion-result" id="emotionResult">
+          <div class="emotion-illustration" id="emotionIllustration">♡</div>
+          <div class="emotion-name" id="emotionName">Пока не знаю</div>
+          <p id="emotionMessage">Включи камеру — и посмотрим!</p>
+        </div>
+
+        <div class="confidence-box">
+          <div class="confidence-heading"><span>Уверенность модели</span><strong id="confidenceText">—</strong></div>
+          <div class="progress-track"><div class="progress-fill" id="confidenceFill"></div></div>
+          <p>Это предположение модели, а не точное определение твоих чувств.</p>
+        </div>
+
+        <div class="emotion-legend">
+          <div class="legend-item"><span class="legend-face smile">☺</span><div><strong>Smile</strong><small>Улыбка</small></div></div>
+          <div class="legend-item"><span class="legend-face sad">☹</span><div><strong>Sad</strong><small>Грусть</small></div></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="bottom-note">
+      <span class="sparkle">✧</span>
+      <p><strong>Любая эмоция — нормальна.</strong> Этот сайт лишь помогает заметить выражение лица, а ты лучше всех знаешь, что чувствуешь.</p>
+      <span class="note-heart">♡</span>
+    </section>
+
+    <footer>made with <span>♥</span> and a little bit of code · feelie 2026</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
